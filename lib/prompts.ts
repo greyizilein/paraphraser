@@ -1,4 +1,4 @@
-import type{Register}from"./types.ts";
+import type{Register}from"./types";
 const registers:Record<Register,string>={preserve:"Preserve the source register, formality, technical depth and seriousness.",academic:"Use rigorous academic prose without canned scholarly phrasing or inflated abstraction.",professional:"Use clear professional prose with deliberate emphasis rather than corporate boilerplate.",technical:"Use precise technical prose and preserve necessary domain terminology.",creative:"Use distinctive natural prose with stronger rhythm while preserving meaning."};
 export function reconstructionPrompt(a:{protectedText:string;targetWords:number;register:Register}){return`Reconstruct the passage from its meaning rather than paraphrasing its sentences.
 
