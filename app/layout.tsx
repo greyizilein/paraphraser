@@ -1,0 +1,1 @@
+import type{Metadata}from"next";import"./globals.css";export const metadata:Metadata={title:"Paraphraser Lab",description:"Precision natural-language paraphrasing with deterministic word-count control."};export default function Layout({children}:{children:React.ReactNode}){return<html lang="en"><body>{children}</body></html>}
