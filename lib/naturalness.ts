@@ -1,4 +1,4 @@
-import{countWords}from"./word-count.ts";
+import{countWords}from"./word-count";
 const canned=["in conclusion","furthermore","moreover","it is important to note","it is worth noting","overall","in addition","consequently","therefore","thus","this highlights","this demonstrates","this underscores","it can be argued","in today's","plays a crucial role","plays a vital role"];
 function sentences(text:string){return text.split(/(?<=[.!?])\s+(?=[A-Z0-9“\"])/u).map(s=>s.trim()).filter(Boolean)}
 function ngrams(text:string,n:number){const w=text.toLowerCase().match(/[\p{L}\p{N}’'-]+/gu)||[],out=new Set<string>();for(let i=0;i<=w.length-n;i++)out.add(w.slice(i,i+n).join(" "));return out}
