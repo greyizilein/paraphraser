@@ -1,0 +1,3 @@
+export const MODEL_CATALOG=[{key:"sonnet-5",label:"Claude Sonnet 5",model:process.env.PARAPHRASER_MODEL_ANTHROPIC||"anthropic/claude-sonnet-5"},{key:"gpt-5.6-terra",label:"GPT-5.6 Terra",model:process.env.PARAPHRASER_MODEL_OPENAI||"openai/gpt-5.6-terra"},{key:"gemini-3.6-flash",label:"Gemini 3.6 Flash",model:process.env.PARAPHRASER_MODEL_GOOGLE||"google/gemini-3.6-flash"}]as const;
+export const VERIFIER_MODEL=process.env.PARAPHRASER_VERIFIER_MODEL||"google/gemini-3.6-flash";
+export function resolveModel(value:string){const found=MODEL_CATALOG.find(x=>x.key===value||x.model===value);if(!found)throw new Error("Unsupported model.");return found.model;}
