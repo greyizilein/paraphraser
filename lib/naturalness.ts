@@ -1,6 +1,6 @@
 import{countWords}from"./word-count.ts";
 const canned=["in conclusion","furthermore","moreover","it is important to note","it is worth noting","overall","in addition","consequently","therefore","thus","this highlights","this demonstrates","this underscores","it can be argued","in today's","plays a crucial role","plays a vital role"];
-function sentences(text:string){return text.split(/(?<=[.!?])\s+(?=[A-Z0-9“\"])/u).map(s=>s.trim()).filter(Boolean)}
+function sentences(text:string){return text.split(/(?<=[.!?])\s+(?=[A-Z0-9“"])/u).map(s=>s.trim()).filter(Boolean)}
 function ngrams(text:string,n:number){const w=text.toLowerCase().match(/[\p{L}\p{N}’'-]+/gu)||[],out=new Set<string>();for(let i=0;i<=w.length-n;i++)out.add(w.slice(i,i+n).join(" "));return out}
 function overlap(a:Set<string>,b:Set<string>){if(!a.size||!b.size)return 0;let i=0;for(const x of a)if(b.has(x))i++;return i/new Set([...a,...b]).size}
 export type NaturalnessReport={score:number;sentenceVariation:number;cannedDensity:number;repeatedStarterRate:number;sourceTrigramOverlap:number;notes:string[]};
